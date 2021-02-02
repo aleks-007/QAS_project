@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-02-02T22:16:20.368Z",
+    "end": "2021-02-02T22:16:38.116Z",
+    "duration": 17748,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fcc9efd6-fd5c-42a5-a71b-e6e7e350b949",
+      "title": "",
+      "fullFile": "cypress\\integration\\Playground_1_AddNewCollegue.js",
+      "file": "cypress\\integration\\Playground_1_AddNewCollegue.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "973fd71b-0663-4a23-9344-3933b698086b",
+          "title": "Playground:Add new collegue",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create technology",
+              "fullTitle": "Playground:Add new collegue Create technology",
+              "timedOut": null,
+              "duration": 3520,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_playgroundPage[\"default\"].createTechnology(data.tech.appium);\ncy.get(_playgroundPage[\"default\"].technologyTitle).should(\"contain\", data.tech.appium);\n_playgroundPage[\"default\"].createTechnology(data.tech.java);\ncy.get(_playgroundPage[\"default\"].technologyTitle).should(\"contain\", data.tech.java);",
+              "err": {},
+              "uuid": "fe3f41a8-d6ac-4ce2-9243-d6a04b8aed74",
+              "parentUUID": "973fd71b-0663-4a23-9344-3933b698086b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create seniority",
+              "fullTitle": "Playground:Add new collegue Create seniority",
+              "timedOut": null,
+              "duration": 2442,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_playgroundPage[\"default\"].createSeniorities(data.seniority.intermediate);\ncy.get(_playgroundPage[\"default\"].seniorityTitle).should('have.text', data.seniority.intermediate);",
+              "err": {},
+              "uuid": "84ff9ae2-e15a-4a51-aba1-4d0bf80ccdd5",
+              "parentUUID": "973fd71b-0663-4a23-9344-3933b698086b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create a team",
+              "fullTitle": "Playground:Add new collegue Create a team",
+              "timedOut": null,
+              "duration": 2195,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_playgroundPage[\"default\"].createTeam('QA');\ncy.get(_playgroundPage[\"default\"].seniorityTitle).should('have.text', 'QA');",
+              "err": {},
+              "uuid": "9645f989-8df7-4f89-adea-c4f43546afd7",
+              "parentUUID": "973fd71b-0663-4a23-9344-3933b698086b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new collegue and fill seniority, technologies and team",
+              "fullTitle": "Playground:Add new collegue Add new collegue and fill seniority, technologies and team",
+              "timedOut": null,
+              "duration": 3314,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_playgroundPage[\"default\"].addCollegue('Aleksandra', 'Intermediate', 'QA', 2, 'Java', 'Appium'); //Assert\n\n_playgroundPage[\"default\"].assertCollegueWasAdded(_playgroundPage[\"default\"].peopleList, 'Aleksandra'); //Assert that colegue was added\n\ncy.get(_playgroundPage[\"default\"].peopleList).contains('Aleksandra').click(); //Open details\ncy.get(_playgroundPage[\"default\"].peopleFullNameInput).should('have.value', 'Aleksandra'); //Assert full name\n_playgroundPage[\"default\"].assertAddedTechnologies('Appium', 'Java'); //Assert tech\n\ncy.get(_playgroundPage[\"default\"].seniority).should('have.text', 'Intermediate'); //Assert seniority\ncy.get(_playgroundPage[\"default\"].team).should('have.text', 'QA'); //Assert team",
+              "err": {},
+              "uuid": "80365c17-7f69-47ad-a36e-49db03cb0155",
+              "parentUUID": "973fd71b-0663-4a23-9344-3933b698086b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create new project and add collegue",
+              "fullTitle": "Playground:Add new collegue Create new project and add collegue",
+              "timedOut": null,
+              "duration": 2665,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_playgroundPage[\"default\"].addProject('QA Sandbox', 'Aleksandra'); //Assert\n\n_playgroundPage[\"default\"].assertProjectWasAdded(_playgroundPage[\"default\"].projectList, 'QA Sandbox'); //Assert that project was added\n\ncy.get(_playgroundPage[\"default\"].projectList).contains('QA Sandbox').click(); //Open details\n//Assert details of the project\ncy.get(_playgroundPage[\"default\"].projectTitle).should('have.text', 'QA Sandbox');\ncy.get(_playgroundPage[\"default\"].teamTitle).should('have.text', 'QA');\n_playgroundPage[\"default\"].assertCollegueDetails('Aleksandra', 'Intermediate', 'Java', 'Appium');",
+              "err": {},
+              "uuid": "4fab7073-eceb-479b-ade8-48dc3a02742b",
+              "parentUUID": "973fd71b-0663-4a23-9344-3933b698086b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fe3f41a8-d6ac-4ce2-9243-d6a04b8aed74",
+            "84ff9ae2-e15a-4a51-aba1-4d0bf80ccdd5",
+            "9645f989-8df7-4f89-adea-c4f43546afd7",
+            "80365c17-7f69-47ad-a36e-49db03cb0155",
+            "4fab7073-eceb-479b-ade8-48dc3a02742b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14136,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

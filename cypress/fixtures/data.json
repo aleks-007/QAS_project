@@ -1,0 +1,98 @@
+{
+    "Tests": 
+    [{
+        "testName": "Playground : Add new colleague to a company",
+        "descIndicator": true,
+        "desc": "This test is about to check adding a new colleague to the company and filling technology and seniority",
+        "expectedResult": "Colleague should be added to the company displaying technology and seniority level.",
+        "numOfSteps": 7,
+        "automatedIndicator": true,
+        "step1": "Open web portal and login",
+        "step2": "Go to Playground page/ People tab",
+        "step3": "Click 'Create person' button",
+        "step4": "Add technologies",
+        "step5": "Add seniority levels",
+        "step6": "Add collegue",
+        "step7": "Validate data about new collegue"
+    },
+    {
+        "testName": "Playground : Create technology",
+        "descIndicator": true,
+        "desc": "This test is about to check creation of a new technology instance.",
+        "expectedResult": "Technology should be added to list of technologies.",
+        "numOfSteps": 6,
+        "automatedIndicator": true,
+        "step1": "Open web portal and login",
+        "step2": "Go to Playground page/ Technologies tab",
+        "step3": "Click 'Create technology' button",
+        "step4": "Enter technology name",
+        "step5": "Submit form",
+        "step6": "Validate that created technology exists"
+    },
+    {
+        "testName": "Playground : Create seniority",
+        "descIndicator": true,
+        "desc": "This test is about to check creation of a new senniorities instance.",
+        "expectedResult": "Seniority should be added to list of senniorities.",
+        "numOfSteps": 6,
+        "automatedIndicator": true,
+        "step1": "Open web portal and login",
+        "step2": "Go to Playground page/ Senniorities tab",
+        "step3": "Click 'Create seniority' button",
+        "step4": "Enter seniority name",
+        "step5": "Submit form",
+        "step6": "Validate that created seniority exists"
+    },
+    {
+        "testName": "Playground : Create a team",
+        "descIndicator": true,
+        "desc": "This test is about to check creation of a new team instance.",
+        "expectedResult": "Team should be added to list of teams.",
+        "numOfSteps": 6,
+        "automatedIndicator": true,
+        "step1": "Open web portal and login",
+        "step2": "Go to Playground page/ Teams tab",
+        "step3": "Click 'Create team' button",
+        "step4": "Enter team name",
+        "step5": "Submit form",
+        "step6": "Validate that created team exists"
+    },
+    {
+        "testName": "Playground : Create a project",
+        "descIndicator": true,
+        "desc": "This test is about to check creation of a new project instance.",
+        "expectedResult": "Project should be added to list of projects.",
+        "numOfSteps": 6,
+        "automatedIndicator": true,
+        "step1": "Open web portal and login",
+        "step2": "Go to Playground page/ Projects tab",
+        "step3": "Click 'Create project' button",
+        "step4": "Enter project name",
+        "step5": "Select people and submit form",
+        "step6": "Validate that created team exists"
+    }
+    ],
+    "tech": {
+        "appium": "Appium",
+        "java": "Java"
+    },
+    "seniority": {
+        "junior": "Junior",
+        "intermediate": "Intermediate"
+    },
+    "test_body": 
+    {"title":"Title1",
+        "teststeps":["cscc","csCs"],
+        "expected_result":"dvsdddd",
+        "description":"acascvA",
+        "automated":true
+    },
+    "test_edit_body": 
+    {"title":"Title2",
+        "teststeps":["cscc","csCs"],
+        "expected_result":"dvsdddd",
+        "description":"acascvA",
+        "automated":true
+    }
+
+}
