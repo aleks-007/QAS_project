@@ -39,39 +39,41 @@ describe("Playground:Add new collegue", ()=>{
     it("Create a team", ()=>{
 
         Playground.createTeam('QA')
-        cy.get(Playground.seniorityTitle).should('have.text', 'QA')
+        cy.get(Playground.seniorityTitle).should('have.text', data.team.qa)
     })
     it("Add new collegue and fill seniority, technologies and team", ()=>{
        
-        Playground.addCollegue('Aleksandra',  'Intermediate', 'QA', 2, 'Java', 'Appium')
+        Playground.addCollegue(data.collegues.alex,  data.seniority.intermediate, data.team.qa, 2, data.tech.java, data.tech.appium)
 
         //Assert
-        Playground.assertCollegueWasAdded(Playground.peopleList, 'Aleksandra') //Assert that colegue was added
-        cy.get(Playground.peopleList).contains('Aleksandra').click() //Open details
+        Playground.assertCollegueWasAdded(Playground.peopleList, data.collegues.alex) //Assert that colegue was added
+        cy.get(Playground.peopleList).contains(data.collegues.alex).click() //Open details
 
-        cy.get(Playground.peopleFullNameInput).should('have.value', 'Aleksandra') //Assert full name
+        //Assert
+        cy.get(Playground.peopleFullNameInput).should('have.value', data.collegues.alex) //Assert full name
 
-        Playground.assertAddedTechnologies('Appium','Java') //Assert tech
+        Playground.assertAddedTechnologies(data.tech.appium, data.tech.java) //Assert tech
 
-        cy.get(Playground.seniority).should('have.text', 'Intermediate')  //Assert seniority
+        cy.get(Playground.seniority).should('have.text', data.seniority.intermediate)  //Assert seniority
 
-        cy.get(Playground.team).should('have.text', 'QA')  //Assert team
+        cy.get(Playground.team).should('have.text', data.team.qa)  //Assert team
 
     })
     it("Create new project and add collegue", ()=>{
        
-        Playground.addProject('QA Sandbox', 'Aleksandra')
+        Playground.addProject(data.projects.sandbox_qa, data.collegues.alex)
     
         //Assert
-        Playground.assertProjectWasAdded(Playground.projectList, 'QA Sandbox') //Assert that project was added
+        Playground.assertProjectWasAdded(Playground.projectList, data.projects.sandbox_qa) //Assert that project was added
 
-        cy.get(Playground.projectList).contains('QA Sandbox').click() //Open details
+        cy.get(Playground.projectList).contains(data.projects.sandbox_qa).click() //Open details
 
         //Assert details of the project
-        cy.get(Playground.projectTitle).should('have.text', 'QA Sandbox')
-        cy.get(Playground.teamTitle).should('have.text', 'QA')
+        cy.get(Playground.projectTitle).should('have.text', data.projects.sandbox_qa)
 
-        Playground.assertCollegueDetails( 'Aleksandra', 'Intermediate', 'Java', 'Appium')
+        cy.get(Playground.teamTitle).should('have.text', data.team.qa)
+
+        Playground.assertCollegueDetails( data.collegues.alex,  data.seniority.intermediate, data.tech.java, data.tech.appium)
 
     })
     after("Clean Up",()=>{
@@ -80,10 +82,6 @@ describe("Playground:Add new collegue", ()=>{
         ApiRequests.deletePeopleMethod()
         ApiRequests.deleteSenioritiesMethod()
         ApiRequests.deleteTechnologiesMethod()
-        //delete all teams
-    //delete all people
-    //delete all seniorities
-    //delete all technologies
     })
 
 })

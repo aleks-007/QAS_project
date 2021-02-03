@@ -1,8 +1,5 @@
 
 class PlaygroundApis {
-    constructor() {
-
-    }
 
     //Get token
     
@@ -10,7 +7,7 @@ class PlaygroundApis {
         let token
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseURL') + 'api/users/login',
+            url: Cypress.env('apiBaseURL') + 'users/login',
             body: {
                 "email": Cypress.env('username'),
                 "password": Cypress.env('password')
@@ -25,7 +22,7 @@ class PlaygroundApis {
 getAllProjectsIds(token, idList){
     cy.request({
         method: 'GET',
-        url: Cypress.env('baseURL') + 'api/projects/all',
+        url: Cypress.env('apiBaseURL') + 'projects/all',
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -40,7 +37,7 @@ deleteAllProjects(list, token){
     for(var i =0; i < list.length; i++){
     cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseURL') + 'api/projects/project/'+list[i],
+        url: Cypress.env('apiBaseURL') + 'projects/project/'+list[i],
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -52,7 +49,7 @@ deleteAllProjects(list, token){
 getAllTeamIds(token, idList){
     cy.request({
         method: 'GET',
-        url: Cypress.env('baseURL') + 'api/roles/all',
+        url: Cypress.env('apiBaseURL') + 'roles/all',
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -67,7 +64,7 @@ deleteAllTeams(list, token){
     for(var i =0; i < list.length; i++){
     cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseURL') + 'api/roles/role/'+list[i],
+        url: Cypress.env('apiBaseURL') + 'roles/role/'+list[i],
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -79,7 +76,7 @@ deleteAllTeams(list, token){
 getPeopleIds(token, idList){
     cy.request({
         method: 'GET',
-        url: Cypress.env('baseURL') + 'api/people/all',
+        url: Cypress.env('apiBaseURL') + 'people/all',
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -94,7 +91,7 @@ deletePeople(list, token){
     for(var i =0; i < list.length; i++){
     cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseURL') + 'api/people/person/'+list[i],
+        url: Cypress.env('apiBaseURL') + 'people/person/'+list[i],
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -106,7 +103,7 @@ deletePeople(list, token){
 getSenioritiesIds(token, idList){
     cy.request({
         method: 'GET',
-        url: Cypress.env('baseURL') + 'api/seniorities/all',
+        url: Cypress.env('apiBaseURL') + 'seniorities/all',
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -121,7 +118,7 @@ deleteSeniorities(list, token){
     for(var i =0; i < list.length; i++){
     cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseURL') + 'api/seniorities/seniority/'+list[i],
+        url: Cypress.env('apiBaseURL') + 'seniorities/seniority/'+list[i],
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -133,7 +130,7 @@ deleteSeniorities(list, token){
 getTechnologiesIds(token, idList){
     cy.request({
         method: 'GET',
-        url: Cypress.env('baseURL') + 'api/technologies/all',
+        url: Cypress.env('apiBaseURL') + 'technologies/all',
         headers: {
             "authorization": 'Bearer ' + token
         }
@@ -148,7 +145,7 @@ deleteTechnologies(list, token){
     for(var i =0; i < list.length; i++){
     cy.request({
         method: 'DELETE',
-        url: Cypress.env('baseURL') + 'api/technologies/technology/'+list[i],
+        url: Cypress.env('apiBaseURL') + 'technologies/technology/'+list[i],
         headers: {
             "authorization": 'Bearer ' + token
         }

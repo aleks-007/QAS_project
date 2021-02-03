@@ -1,0 +1,4 @@
+node_modules
+mocha
+mochawesome
+package-lock.json

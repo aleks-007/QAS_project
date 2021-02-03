@@ -1,8 +1,5 @@
 
 class ReportingApis {
-    constructor() {
-
-    }
 
     //Get token
     
@@ -10,7 +7,7 @@ class ReportingApis {
         let token
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseURL') + 'api/users/login',
+            url: Cypress.env('apiBaseURL') + 'users/login',
             body: {
                 "email": Cypress.env('username'),
                 "password": Cypress.env('password')
@@ -18,20 +15,18 @@ class ReportingApis {
         }).then((response)=>{
             token = response.body.token;
             cy.wrap(token).as('token')
-            // return token
         })
     }
     /**
      * Create an issue
-     * 
-     *
+     * @param body Data from json file for creating an issue
      */
     createAnIssue(body){
         cy.get('@token').then((token)=>{
 
             cy.request({
                 method: 'POST',
-                url: Cypress.env('baseURL') + 'api/reports/report',
+                url: Cypress.env('apiBaseURL') + 'reports/report',
                 headers: {
                     "authorization": 'Bearer ' + token
                 },
@@ -66,7 +61,7 @@ class ReportingApis {
                 cy.request({
                     method: 'PUT',
                     failOnStatusCode: false,
-                    url: Cypress.env('baseURL') + 'api/reports/'+ report_id,
+                    url: Cypress.env('apiBaseURL') + 'reports/'+ report_id,
                     headers: {
                         "authorization": 'Bearer ' + token
                     },
@@ -86,13 +81,8 @@ class ReportingApis {
      */
     assertEditedIssue(data){
         cy.get('@response1').then((response)=>{
-            // expect(response1.status).to.equal(200)
-            // expect(response.body.summary).to.eql(data)
-
-            console.log(response.uder_id)
             expect(response.body.summary).to.eql(data)
 
-            
         })
     }
     /**
@@ -104,7 +94,7 @@ class ReportingApis {
         cy.get('@token').then((token)=>{
         cy.request({
             method: 'GET',
-            url: Cypress.env('baseURL') + 'api/reports/all',
+            url: Cypress.env('apiBaseURL') + 'reports/all',
             headers: {
                 "authorization": 'Bearer ' + token
             }
@@ -126,7 +116,7 @@ class ReportingApis {
                     cy.request({
                         failOnStatusCode: false,
                         method: 'DELETE',
-                        url: Cypress.env('baseURL') + 'api/reports/'+list[i],
+                        url: Cypress.env('apiBaseURL') + 'reports/'+list[i],
                         headers: {
                             "authorization": 'Bearer ' + token
                         }

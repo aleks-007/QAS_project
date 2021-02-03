@@ -1,15 +1,12 @@
 
 class UseCaseApis {
-    constructor() {
-
-    }
 
     //Get token
     getToken(){
         let token
         cy.request({
             method: 'POST',
-            url: Cypress.env('baseURL') + 'api/users/login',
+            url: Cypress.env('apiBaseURL') + 'users/login',
             body: {
                 "email": Cypress.env('username'),
                 "password": Cypress.env('password')
@@ -26,7 +23,7 @@ class UseCaseApis {
 
             cy.request({
                 method: 'POST',
-                url: Cypress.env('baseURL') + 'api/usecases/usecase',
+                url: Cypress.env('apiBaseURL') + 'usecases/usecase',
                 headers: {
                     "authorization": 'Bearer ' + token
                 },
@@ -42,11 +39,12 @@ class UseCaseApis {
     assertCreatedUseCase(test_body){
         cy.get('@response').then((response)=>{
             expect(response.status).to.equal(200)
-            expect(response.body.title).to.eql(test_body.title)
+
+            expect(response.body.title).to.equal(test_body.title)
             expect(response.body.teststeps).to.eql(test_body.teststeps)
-            expect(response.body.expected_result).to.eql(test_body.expected_result)
-            expect(response.body.description).to.eql(test_body.description)
-            expect(response.body.automated).to.eql(test_body.automated)
+            expect(response.body.expected_result).to.equal(test_body.expected_result)
+            expect(response.body.description).to.equal(test_body.description)
+            expect(response.body.automated).to.equal(test_body.automated)
         })
         
     }
@@ -55,7 +53,7 @@ class UseCaseApis {
                 cy.request({
                     method: 'GET',
                     failOnStatusCode: false,
-                    url: Cypress.env('baseURL') + 'api/usecases/all',
+                    url: Cypress.env('apiBaseURL') + 'usecases/all',
                     headers: {
                         "authorization": 'Bearer ' + token
                     }
@@ -72,7 +70,7 @@ class UseCaseApis {
                 cy.request({
                     method: 'PUT',
                     failOnStatusCode: false,
-                    url: Cypress.env('baseURL') + 'api/usecases/usecase/'+ usecase_id,
+                    url: Cypress.env('apiBaseURL') + 'usecases/usecase/'+ usecase_id,
                     headers: {
                         "authorization": 'Bearer ' + token
                     },
@@ -88,12 +86,13 @@ class UseCaseApis {
         cy.get('@response_editUseCase').then((response)=>{
             cy.get('@user_id').then((user_id)=>{
             expect(response.status).to.equal(200)
-            expect(response.body.user_id).to.eql(user_id)
-            expect(response.body.title).to.eql(test_body.title)
+
+            expect(response.body.user_id).to.equal(user_id)
+            expect(response.body.title).to.equal(test_body.title)
             expect(response.body.teststeps).to.eql(test_body.teststeps)
-            expect(response.body.expected_result).to.eql(test_body.expected_result)
-            expect(response.body.description).to.eql(test_body.description)
-            expect(response.body.automated).to.eql(test_body.automated)
+            expect(response.body.expected_result).to.equal(test_body.expected_result)
+            expect(response.body.description).to.equal(test_body.description)
+            expect(response.body.automated).to.equal(test_body.automated)
             })
         })
     }
@@ -105,7 +104,7 @@ class UseCaseApis {
                 cy.request({
                     method: 'DELETE',
                     failOnStatusCode: false,
-                    url: Cypress.env('baseURL') + 'api/usecases/usecase/'+ usecase_id,
+                    url: Cypress.env('apiBaseURL') + 'usecases/usecase/'+ usecase_id,
                     headers: {
                         "authorization": 'Bearer ' + token
                     }
@@ -118,21 +117,15 @@ class UseCaseApis {
     }
      //Assert deleted use case
      assertDeletedUseCase(){
-
-         cy.get('@usecase_id').then((usecase_id)=>{
             cy.get('@response_deleteUseCase').then((response)=>{
                 expect(response.status).to.equal(200)
-                expect(response.body.Success).to.equal("Entry removed successfully")
             })
-         })
-        
-        
     }
     //************************************************************************************************ */
     getAllUseCaseIds(token, idList){
         cy.request({
             method: 'GET',
-            url: Cypress.env('baseURL') + 'api/usecases/all',
+            url: Cypress.env('apiBaseURL') + 'usecases/all',
             headers: {
                 "authorization": 'Bearer ' + token
             }
@@ -147,7 +140,7 @@ class UseCaseApis {
         for(var i =0; i < list.length; i++){
         cy.request({
             method: 'DELETE',
-            url: Cypress.env('baseURL') + 'api/usecases/usecase/'+list[i],
+            url: Cypress.env('apiBaseURL') + 'usecases/usecase/'+list[i],
             headers: {
                 "authorization": 'Bearer ' + token
             }

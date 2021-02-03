@@ -28,7 +28,7 @@ class Playground {
 
         this.peopleList = '.list-group-item'    //List containing all colleguas
         this.seniority = ':nth-child(3) > :nth-child(1) > .react-dropdown-select > .react-dropdown-select-content > span'
-        this.team = ':nth-child(4) > :nth-child(1) > .react-dropdown-select > .react-dropdown-select-content > span'
+        this.team = ':nth-child(4) > :nth-child(1) > .react-dropdown-select > .react-dropdown-select-content > span'  
 
         //Tab teams
         this.teamTab = '[href="/roles"]'
@@ -168,7 +168,7 @@ class Playground {
 */
 assertAddedTechnologies(...tech){
     let parsedText
-    cy.get(':nth-child(2) > :nth-child(1) > .react-dropdown-select > .react-dropdown-select-content').invoke('text').then(($loc)=>{  
+    cy.get(':nth-child(2) > :nth-child(1) > .react-dropdown-select > .react-dropdown-select-content').invoke('text').then(($loc)=>{  //Find better loc
         parsedText = $loc.split("×") 
         parsedText.pop()
 
@@ -215,10 +215,6 @@ assertAddedTechnologies(...tech){
                 expect(list).to.include(projectName)
             })
         } 
-        // cy.wrap(list).as('projectList')
-        // cy.get('@projectList').then((p)=>{
-        //     expect(p).to.include(projectName)
-        // })
     })
 }
 

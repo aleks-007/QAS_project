@@ -1,13 +1,12 @@
 import PlaygroundApis from '../page_objects/api_methods/playgroundApis'
 import ReportingApis from '../page_objects/api_methods/reportingApis'
 import UseCaseApis from '../page_objects/api_methods/useCaseApis'
+
 //Used as a helper class for clean up and etc
+
 class ApiRequests {
 
-    constructor(){
-
-    }
-
+    //Delete all use cases
     deleteAllUseCasesMethod(){
         UseCaseApis.getToken() 
         let list = [];
@@ -41,7 +40,6 @@ class ApiRequests {
         cy.get('@token').then((token)=>{ 
             ReportingApis.deleteAllReports(list, token)
         })
-
      
     }
     //Delete all teams

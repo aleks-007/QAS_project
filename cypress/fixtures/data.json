@@ -72,26 +72,35 @@
         "step6": "Validate that created team exists"
     }
     ],
+    "collegues": {
+        "alex": "Aleksandra Todorovic"
+    },
     "tech": {
         "appium": "Appium",
         "java": "Java"
+    },
+    "team": {
+        "qa": "QA"
     },
     "seniority": {
         "junior": "Junior",
         "intermediate": "Intermediate"
     },
+    "projects": {
+        "sandbox_qa": "QA Sandbox"
+    },
     "test_body": 
-    {"title":"Title1",
-        "teststeps":["cscc","csCs"],
-        "expected_result":"dvsdddd",
-        "description":"acascvA",
+    {"title":"Use case",
+        "teststeps":["step1","step2"],
+        "expected_result":"results",
+        "description":"description",
         "automated":true
     },
     "test_edit_body": 
-    {"title":"Title2",
-        "teststeps":["cscc","csCs"],
-        "expected_result":"dvsdddd",
-        "description":"acascvA",
+    {"title":"Use case edited",
+        "teststeps":["step11","step22"],
+        "expected_result":"results after edition",
+        "description":"description after edition",
         "automated":true
     }
 

@@ -4,7 +4,6 @@ class Login {
         this.loginButton = 'a.btn:nth-child(4)'
         this.forgotPassButton = 'a.btn:nth-child(3)'
 
-
         this.username = '[name="email"]'
         this.password = '[name="password"]'
         this.submitButton = '[data-testid="submit_btn"]'
